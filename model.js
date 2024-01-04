@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const AutoSchema = new mongoose.Schema(
   {
-    AutoName: String,
-    Brand: String,
+    autoName: String,
+    brand: String,
     age: Number,
   },
   {
     versionKey: false,
-    collation: "autos",
+    collection: "autos",
   }
 );
 

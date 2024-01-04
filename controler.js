@@ -6,7 +6,7 @@ export const getAuto = async (req, res) => {
     const auto = await Autos.findById(req.params.id);
     auto
       ? res.status(201).json({ auto })
-      : res.status(404).json({ msg: "Auto nor found" });
+      : res.status(404).json({ msg: "Auto not found" });
   } catch (error) {
     console.error(error.msg);
     response.status(500).json(error);
