@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import mongoose, { mongoose } from "mongoose";
+import mongoose from "mongoose";
 import { autoRouter } from "./router.js";
 
 dotenv.config();
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use("/api/v1/autos", autoRouter);
 
 const startServer = async () => {
-mongoose.conect(DB_KEY);
+mongoose.connect(DB_KEY);
     app.listen(PORT, () => {
         console.log("server is listening on port ", PORT);
     });

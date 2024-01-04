@@ -1,4 +1,3 @@
-import { response } from "express";
 import { Autos } from "./model.js";
 
 export const getAuto = async (req, res) => {
@@ -9,6 +8,16 @@ export const getAuto = async (req, res) => {
       : res.status(404).json({ msg: "Auto not found" });
   } catch (error) {
     console.error(error.msg);
-    response.status(500).json(error);
+    res.status(500).json(error);
   }
 };
+export const postAuto = async (req, res) => {
+  try {
+    const auto = await Autos.create(req.body);
+    res.status(201).json({ auto })
+
+  }catch (error) {
+    console.log(error.msg);
+    res.status(500).json({ msg: "Auto not found" });
+  }
+}
