@@ -15,9 +15,17 @@ export const postAuto = async (req, res) => {
   try {
     const auto = await Autos.create(req.body);
     res.status(201).json({ auto })
-
   }catch (error) {
     console.log(error.msg);
     res.status(500).json({ msg: "Auto not found" });
+  }
+}
+export const getAllAuto = async (req, res) => {
+  try {
+    const auto = await Autos.find();
+    res.status(201).json({ auto })
+  }catch(error) {
+    console.log(error.msg);
+    res.status(500).json(error);
   }
 }
